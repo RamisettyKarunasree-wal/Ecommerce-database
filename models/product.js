@@ -20,14 +20,17 @@ module.exports = (sequelize, DataTypes) => {
       this.hasOne(models.Order_Item, {
         through: 'Order_Items',
       });
+      this.hasMany(models.Order_Item, {
+        foreignKey: 'product_id',
+      });
     }
   }
   Product.init(
     {
       title: DataTypes.STRING,
       description: DataTypes.STRING,
-      quantity: DataTypes.NUMBER,
-      price: DataTypes.NUMBER,
+      quantity: DataTypes.INTEGER,
+      price: DataTypes.INTEGER,
     },
     {
       sequelize,

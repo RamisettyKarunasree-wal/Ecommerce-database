@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       mobile_number: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       email: {
         type: Sequelize.STRING

@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Order_Status);
       this.belongsTo(models.User_Address);
       this.belongsTo(models.Paymant);
+      this.hasMany(models.Order_Item, {
+        foreignKey: 'order_id',
+      });
     }
   }
   Order.init(

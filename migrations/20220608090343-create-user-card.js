@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       card_number: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
       },
       card_holder_name: {
         type: Sequelize.STRING,
@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.DATE,
       },
       cvv_number: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -28,9 +28,19 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      user_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id',
+          as: 'user_id',
+        },
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('User_Cards');
   },
 };
+
